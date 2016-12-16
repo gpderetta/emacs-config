@@ -295,6 +295,15 @@
 (add-hook 'electric-buffer-menu-mode-hook 'my-buffer-menu-custom-font-lock)
 (add-hook 'electric-buffer-menu-mode-hook 'my-buffer-menu-custom-keybindings)
 
+(defadvice display-message-or-buffer (before ansi-color activate)
+  "Process ANSI color codes in shell output."
+  (let ((buf (ad-get-arg 0)))
+    (and (bufferp buf)
+         (or (string= (buffer-name buf) "*Shell Command Output*")
+             (string= (buffer-name buf) "*real-compilation*"))
+         (with-current-buffer buf
+           (abort)
+           (ansi-color-apply-on-region (point-min) (point-max))))))
 
 
 (provide 'miscellanea)

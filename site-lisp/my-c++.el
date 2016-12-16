@@ -46,7 +46,7 @@
 
   (hl-line-mode 1)  ;; highlight current line
 
-  (setq ac-sources (append ac-sources '(ac-source-rtags)))
+  (setq ac-sources '(ac-source-rtags)) ;; ac-source-words-in-same-mode-buffers))
 
   (setq c-basic-offset 4
         tab-width 4
@@ -62,5 +62,7 @@
 
 (setq-default c-basic-offset 4)
 (setq-default tab-width 4)
+
+;; (defun my-rtags-)
 
 (provide 'my-c++)
