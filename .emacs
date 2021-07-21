@@ -221,7 +221,8 @@
   (global-aggressive-indent-mode 1)
   (setq indent-region-function #'lsp-format-region))
 
-(use-package flycheck)
+(use-package flycheck
+  :ensure t)
 
 (use-package ivy
   :ensure t
@@ -236,7 +237,7 @@
 
 (use-package ivy-rich
   :ensure t
-  :disable
+  :disabled
   :after ivy
   :custom
   (ivy-virtual-abbreviate 'full
@@ -271,9 +272,10 @@
 
 (use-package company
   :after lsp-mode
+  :ensure t
   :config
   (setq  company-idle-delay 0.0
-	company-minimum-prefix-length 1))
+	 company-minimum-prefix-length 1))
 
 (use-package lsp-ui
   :ensure t
