@@ -17,7 +17,7 @@
 (use-package cli-lib)
 (use-package emacs
   :demand t
-  :init
+  :config
   (setq-default inhibit-startup-message t
 		indent-tabs-mode nil
 		tab-width 4
@@ -76,24 +76,24 @@
   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
 
- :bind
+  :bind
 
- (([f1] . 'goto-line)
-  ([(shift f3)] . 'gud-stepi)
-  ([f7] . 'ff-find-other-file)
+  (([f1] . 'goto-line)
+   ([(shift f3)] . 'gud-stepi)
+   ([f7] . 'ff-find-other-file)
 
-  ([(shift f9)] . 'ibuffer)
-  ([f11] . 'shell)
-  (([shift f11]) . 'run-python)
+   ([(shift f9)] . 'ibuffer)
+   ([f11] . 'shell)
+   (([shift f11]) . 'run-python)
 
-  ([C-left] . 'backward-word)
-  ([C-right] . 'forward-word)
-  ([C-up] . 'backward-paragraph)
-  ([C-down] . 'forward-paragraph)
-  ([C-prior] . 'beginning-of-buffer)
-  ([C-next] . 'end-of-buffer)
-  ([delete] . 'delete-char)
-  ([(control tab)] . 'dabbrev-expand)))
+   ([C-left] . 'backward-word)
+   ([C-right] . 'forward-word)
+   ([C-up] . 'backward-paragraph)
+   ([C-down] . 'forward-paragraph)
+   ([C-prior] . 'beginning-of-buffer)
+   ([C-next] . 'end-of-buffer)
+   ([delete] . 'delete-char)
+   ([(control tab)] . 'dabbrev-expand)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Buffers Save 
@@ -197,7 +197,7 @@
   (([shift f11] . 'run-python)))
 
 (use-package windmove
-  :demand t
+  :ensure t
   :config
   (windmove-default-keybindings))
 
