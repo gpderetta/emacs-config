@@ -18,29 +18,29 @@
 (setq inhibit-startup-message t
       custom-safe-themes t)
 
-(use-package cli-lib)
+(use-package cl-lib)
 (use-package emacs
   :demand t
   :init
   (setq indent-tabs-mode nil
-	tab-width 4
-	c-basic-offset 4
-	transient-mark-mode t
-	x-select-enable-clipboard t)
+	    tab-width 4
+	    c-basic-offset 4
+	    transient-mark-mode t
+	    x-select-enable-clipboard t)
   :config
   (setq max-lisp-eval-depth 1000
-	gc-cons-threshold (* 100 1024 1024)
-	custom-safe-themes t
+	    gc-cons-threshold (* 100 1024 1024)
+	    custom-safe-themes t
 
-	locale-coding-system 'utf-8
+	    locale-coding-system 'utf-8
 
-	require-final-newline t
-	indicate-empty-lines t
+	    require-final-newline t
+	    indicate-empty-lines t
 
-	message-truncate-lines t
+	    message-truncate-lines t
 
-	backup-by-copying t
-	backup-directory-alist '(("." . "~/.emacs-backups")))
+	    backup-by-copying t
+	    backup-directory-alist '(("." . "~/.emacs-backups")))
 
   (set-face-attribute 'default nil 
                       :height 80
@@ -80,14 +80,13 @@
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
 
   :bind
-
   (([f1] . 'goto-line)
-   ([(shift f3)] . 'gud-stepi)
-   ([f7] . 'ff-find-other-file)
+   ;;  ([(shift f3)] . 'gud-stepi)
+   ;;  ([f7] . 'ff-find-other-file)
 
    ([(shift f9)] . 'ibuffer)
    ([f11] . 'shell)
-   (([shift f11]) . 'run-python)
+   ([(shift f11)] . 'run-python)
 
    ([C-left] . 'backward-word)
    ([C-right] . 'forward-word)
@@ -96,7 +95,9 @@
    ([C-prior] . 'beginning-of-buffer)
    ([C-next] . 'end-of-buffer)
    ([delete] . 'delete-char)
-   ([(control tab)] . 'dabbrev-expand)))
+   ([(control tab)] . 'dabbrev-expand)
+   )
+  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Buffers Save 
