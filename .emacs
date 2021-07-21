@@ -16,16 +16,18 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 
 
+
+
 (use-package cli-lib)
 (use-package emacs
   :demand t
   :init
-  (setq-default inhibit-startup-message t
-		indent-tabs-mode nil
-		tab-width 4
-		c-basic-offset 4
-		transient-mark-mode t
-		x-select-enable-clipboard t)
+  (setq inhibit-startup-message t
+	indent-tabs-mode nil
+	tab-width 4
+	c-basic-offset 4
+	transient-mark-mode t
+	x-select-enable-clipboard t)
   :config
   (setq max-lisp-eval-depth 1000
 	gc-cons-threshold (* 100 1024 1024)
