@@ -13,6 +13,8 @@
   (require 'use-package))
 ;; boostrap end
 
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+
 
 (use-package cli-lib)
 (use-package emacs
