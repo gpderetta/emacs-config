@@ -1,3 +1,5 @@
+;; -*- eval: (git-auto-commit-mode 1) -*-
+
 (defun my-wrap-with-paren (&optional arg)
   "Select ARG next things and wrap them with a () pair."
   (interactive "p")
@@ -218,7 +220,7 @@
 (defun my-insert-last-sexp ()
   (interactive)
   (let ((value (eval (preceding-sexp))))
-    (insert (format " = %s" value))))
+    (insert (format ";; = %s" value))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Shell mode Tweaks and Helpers
@@ -295,6 +297,29 @@
 (add-hook 'electric-buffer-menu-mode-hook 'my-buffer-menu-custom-font-lock)
 (add-hook 'electric-buffer-menu-mode-hook 'my-buffer-menu-custom-keybindings)
 
+(defun my-llvm-lineup-statement (langelem)
+  (let ((in-assign (c-lineup-assignments langelem)))
+    (if (not in-assign)
+        '++
+      (aset in-assign 0
+            (+ (aref in-assign 0)
+               (* 2 c-basic-offset)))
+      in-assign)))
+
+;; Add a cc-mode style for editing LLVM C and C++ code
+(c-add-style "llvm.org"
+             '("gnu"
+	       (fill-column . 80)
+	       (c++-indent-level . 2)
+	       (c-basic-offset . 2)
+	       (indent-tabs-mode . nil)
+	       (c-offsets-alist . ((arglist-intro . ++)
+				   (innamespace . 0)
+				   (member-init-intro . ++)
+				   (statement-cont . my-llvm-lineup-statement)))))
+
+(defun my-c-mode-common-hook ()
+  (c-set-style "llvm.org"))
 
 
 (provide 'miscellanea)
