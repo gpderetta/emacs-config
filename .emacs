@@ -171,7 +171,7 @@
   :demand t
   :config
   (defadvice keyboard-escape-quit (around my-keyboard-escape-quit activate)
-    (cl-fet ((one-window-p (&optional nomini all-frames) t)) ad-do-it))
+    (cl-felt ((one-window-p (&optional nomini all-frames) t)) ad-do-it))
   :bind
   (("C-d" . 'my-toggle-window-dedicated)
    ("C-x C-r" . 'my-replace-last-sexp)
