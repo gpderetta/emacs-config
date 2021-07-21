@@ -15,8 +15,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 
-(setq inhibit-startup-message t)
-
+(setq inhibit-startup-message t
+      custom-safe-themes t)
 
 (use-package cli-lib)
 (use-package emacs
