@@ -23,24 +23,24 @@
   :demand t
   :init
   (setq indent-tabs-mode nil
-	    tab-width 4
-	    c-basic-offset 4
-	    transient-mark-mode t
-	    x-select-enable-clipboard t)
+	tab-width 4
+	c-basic-offset 4
+	transient-mark-mode t
+	x-select-enable-clipboard t)
   :config
   (setq max-lisp-eval-depth 1000
-	    gc-cons-threshold (* 100 1024 1024)
-	    custom-safe-themes t
+	gc-cons-threshold (* 100 1024 1024)
+	custom-safe-themes t
 
-	    locale-coding-system 'utf-8
+	locale-coding-system 'utf-8
 
-	    require-final-newline t
-	    indicate-empty-lines t
+	require-final-newline t
+	indicate-empty-lines t
 
-	    message-truncate-lines t
+	message-truncate-lines t
 
-	    backup-by-copying t
-	    backup-directory-alist '(("." . "~/.emacs-backups")))
+	backup-by-copying t
+	backup-directory-alist '(("." . "~/.emacs-backups")))
 
   (set-face-attribute 'default nil 
                       :height 80
@@ -75,9 +75,6 @@
 
   (add-hook 'text-mode-hook (lambda () (hl-line-mode 1)))
   (add-hook 'text-mode-hook 'turn-on-auto-fill)
-
-  (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
-  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
 
   :bind
   (([f1] . 'goto-line)
