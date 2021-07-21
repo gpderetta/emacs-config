@@ -15,15 +15,14 @@
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
 
-
+(setq inhibit-startup-message t)
 
 
 (use-package cli-lib)
 (use-package emacs
   :demand t
   :init
-  (setq inhibit-startup-message t
-	indent-tabs-mode nil
+  (setq indent-tabs-mode nil
 	tab-width 4
 	c-basic-offset 4
 	transient-mark-mode t
