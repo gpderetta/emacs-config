@@ -333,6 +333,7 @@
  '(custom-enabled-themes '(my-underwater))
  '(custom-safe-themes
    '("dbf18473be87255b3d32e68c027073d4c0db97bbbbadd43bc8bbd429df690f5e" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" default))
+ '(lsp-restart 'auto-restart)
  '(package-selected-packages
    '(which-key lsp-mode lsp magit ripgrep multiple-cursors dash-functional ag use-package))
  '(safe-local-variable-values '((mmm-classes . embedded-c++)))
