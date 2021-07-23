@@ -214,6 +214,7 @@
   :config
   (counsel-mode))
 
+;; workaround for clang-format: don't indent if we just typed an identifier
 (defun my-stop-indent-p ()
   (let ((a (char-before))
 	(b (char-before (- (point) 1))))
