@@ -214,13 +214,20 @@
   :config
   (counsel-mode))
 
+(defun my-stop-indent-p ()
+  (let ((a (char-before))
+	(b (char-before (- (point) 1))))
+    (and (eq a ?\ ) (not (eq b ?\ )))))
+
 (use-package aggressive-indent
   :ensure t
   :config
   (global-aggressive-indent-mode 1)
-  (setq indent-region-function #'lsp-format-region))
+  (setq indent-region-function #'lsp-format-region)
+  (add-to-list 'aggressive-indent-dont-indent-if '(my-stop-indent-p))
+  )
 
-(use-package flycheck
+(use-package flycheck 
   :ensure t)
 
 (use-package ivy
@@ -270,8 +277,9 @@
   (yas-global-mode 1))
 
 (use-package company
-  :after lsp-mode
   :ensure t
+  :init
+  (global-company-mode)
   :config
   (setq  company-idle-delay 0.0
 	 company-minimum-prefix-length 1))
@@ -345,6 +353,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
-
-
+ ) 
