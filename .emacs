@@ -79,7 +79,7 @@
   :bind
   (([f1] . 'goto-line)
    ;;  ([(shift f3)] . 'gud-stepi)
-   ;;  ([f7] . 'ff-find-other-file)
+   ([f7] . 'ff-find-other-file)
 
    ([(shift f9)] . 'ibuffer)
    ([f11] . 'shell)
