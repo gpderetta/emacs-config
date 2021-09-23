@@ -225,7 +225,7 @@
   :config
   (global-aggressive-indent-mode 1)
   (setq indent-region-function #'lsp-format-region)
-  (add-to-list 'aggressive-indent-dont-indent-if '(my-stop-indent-p))
+  (setq aggressive-indent-dont-indent-if '(my-stop-indent-p))
   )
 
 (use-package flycheck 
